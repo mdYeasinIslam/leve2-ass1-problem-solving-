@@ -7,6 +7,14 @@
         }
     }
 
+    function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[] {
+        return items.filter(i => i.rating >= 4);
+    }
 
+
+    function concatenateArrays<T>(...arrays: T[][]): T[] {
+        return arrays.reduce((ac, array) => [...ac, ...array], []);
+    }
+    
     
 }
