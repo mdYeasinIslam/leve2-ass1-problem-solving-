@@ -1,9 +1,9 @@
 {
-    function formatString(text: string, toUpperCase?: boolean): string {
-        if(toUpperCase === false){
-            return text.toLowerCase();
+    function formatString(input: string, toUpper?: boolean): string {
+        if(toUpper === false){
+            return input.toLowerCase();
         }else {
-            return text.toUpperCase();
+            return input.toUpperCase();
         }
     }
 
@@ -27,7 +27,7 @@
         }
 
         getInfo(): string {
-            return `Make: ${this.make}, Year: ${this.year}`;
+            return `make: ${this.make}, year: ${this.year}`;
         }
     }
 
@@ -40,9 +40,36 @@
         }
 
         getModel(): string {
-            return `Model: ${this.model}`;
+            return `model: ${this.model}`;
         }
     }
 
-    
+    function processValue(value: string | number): number{
+        if(typeof value === 'string'){
+            return value.length;
+        } else {
+            return value * 2;
+        }
+    }
+
+    interface Product {
+        name: string;
+        price: number;
+    }
+
+    function getMostExpensiveProduct(products: Product[]): Product | null{
+        if(products.length === 0){
+            return null;
+        }
+        let expensive = products[0];
+        for(let idx = 1; idx < products.length; idx++){
+            if(products[idx].price > expensive.price){
+                expensive = products[idx];
+            }
+        }
+        return expensive;
+    }
+
+   
+
 }
