@@ -1,19 +1,20 @@
 {
     function formatString(input: string, toUpper?: boolean): string {
-        if(toUpper === false){
+        if(toUpper == false){
             return input.toLowerCase();
-        }else {
+        }
+        else {
             return input.toUpperCase();
         }
     }
 
-    function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[] {
+    function filterByRating(items:{ title: string; rating: number }[]):{ title: string; rating: number }[] {
         return items.filter(i => i.rating >= 4);
     }
 
 
     function concatenateArrays<T>(...arrays: T[][]): T[] {
-        return arrays.reduce((ac, array) => [...ac, ...array], []);
+        return arrays.reduce((ac,array) => [...ac, ...array], []);
     }
 
     
